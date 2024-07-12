@@ -41,7 +41,7 @@ const GeekLayout = () => {
           onClick={onMenuClick}
           items={[
             {
-              key: '/',
+              key: '/home',
               icon: <UserOutlined />,
               label: 'Home',
             },
