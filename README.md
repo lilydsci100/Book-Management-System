@@ -12,6 +12,14 @@ Check the version of Node first
 
 Preferred node version: v18.20.3
 
+## `npm install react-scripts --save-dev`
+
+make sure npm start can run without error
+
+## `node server.js`
+
+run the server
+
 ### `npm start`
 
 Runs the app in the development mode.\
