@@ -13,12 +13,12 @@ import {useSearchParams, Link} from 'react-router-dom'
 import {useEffect} from 'react'
 
 const validateMessages = {
-  required: '需要填写 ${label}!',
+  required: 'Need to fill ${label}!',
   types: {
-    number: '${label}无效!',
+    number: '${label} is invalid!',
   },
   number: {
-    range: '${label}必须为${min} - ${max}之间的数字!',
+    range: '${label} must between ${min} and ${max}!',
   },
 };
 
@@ -33,10 +33,10 @@ const Publish = () => {
     if (articleId) {
       console.log(value)
       updateBook(value,articleId)
-      message.success('编辑成功')
+      message.success('Edit Success')
     } else {
        creatBookAPI(value)
-       message.success('添加图书成功')
+       message.success('Add book successfully')
     }
     
   }
@@ -78,28 +78,28 @@ const Publish = () => {
         form={form}
       >
         <Breadcrumb items={[
-      { title: <Link to={'/'}>首页</Link> },
-      { title: `${articleId ? '编辑' : '发布'}文章` },]}/>
+      { title: <Link to={'/'}>Home</Link> },
+      { title: `${articleId ? 'Edit' : 'Publish'} article` },]}/>
         <div style={{height:'80px'}}></div>
-        <Form.Item label="图书名称" name={['bookname']} rules={[{ required: true }]}>
+        <Form.Item label="Bookname" name={['bookname']} rules={[{ required: true }]}>
           <Input />
         </Form.Item>
-        <Form.Item label="作者" name={['author']} rules={[{ required: true }]}>
+        <Form.Item label="Author" name={['author']} rules={[{ required: true }]}>
           <Input />
         </Form.Item>
-        <Form.Item label="出版社"
+        <Form.Item label="Publisher"
           name={['publisher']} rules={[{ required: true }]}>
           <Input />
         </Form.Item>
-        <Form.Item label="类型" name={['type']} rules={[{ required: true }]}>
+        <Form.Item label="Type" name={['type']} rules={[{ required: true }]}>
           <Select>
-            <Select.Option value="文学">文学</Select.Option>
-            <Select.Option value="医学">医学</Select.Option>
-            <Select.Option value="哲学">哲学</Select.Option>
-            <Select.Option value="计算机">计算机</Select.Option>
+            <Select.Option value="文学">Literature</Select.Option>
+            <Select.Option value="医学">Medical</Select.Option>
+            <Select.Option value="哲学">Philosophy</Select.Option>
+            <Select.Option value="计算机">Computer Science Book</Select.Option>
           </Select>
         </Form.Item>
-        <Form.Item label="总数" name={['total']}
+        <Form.Item label="Total" name={['total']}
         rules={[{ type: 'number', min: 1, max: 99 }]}>
           <InputNumber defaultValue={1}/>
         </Form.Item>

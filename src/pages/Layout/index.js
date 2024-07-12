@@ -43,7 +43,7 @@ const GeekLayout = () => {
             {
               key: '/',
               icon: <UserOutlined />,
-              label: 'nav 1',
+              label: 'Home',
             },
             {
               key: '/books',

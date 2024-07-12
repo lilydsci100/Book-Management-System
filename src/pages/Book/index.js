@@ -48,7 +48,7 @@ const Book = () => {
     setlist(res.data.data)
   }
 
-  //编辑页面跳转
+  //navigateTo
   const navigate = useNavigate()
   
 
@@ -68,20 +68,20 @@ const Book = () => {
         onFinish={onFinish}
         
       >
-        <Form.Item label="出版社"
+        <Form.Item label="Publisher"
           name={['publisher']}
           >
           <Input />
         </Form.Item>
-        <Form.Item label="图书类型" name={['type']}>
+        <Form.Item label="Type" name={['type']}>
           <Select>
-            <Select.Option value="文学">文学</Select.Option>
-            <Select.Option value="医学">医学</Select.Option>
-            <Select.Option value="哲学">哲学</Select.Option>
-            <Select.Option value="计算机">计算机</Select.Option>
+            <Select.Option value="文学">Literature</Select.Option>
+            <Select.Option value="医学">Medical</Select.Option>
+            <Select.Option value="哲学">Philosophy</Select.Option>
+            <Select.Option value="计算机">Computer Science Book</Select.Option>
           </Select>
         </Form.Item>
-        <Form.Item label="图书名称" name={['bookname']}>
+        <Form.Item label="Bookname" name={['bookname']}>
           <Input />
         </Form.Item>
         <Form.Item   wrapperCol={{
@@ -98,12 +98,12 @@ const Book = () => {
           pageSize:4,
           total:list.length
         }}
-        title={()=>`根据筛选条件共查询到 ${count} 条结果：`}>
-        <Column title="bookname" dataIndex="bookname" key="bookname" />
-        <Column title="author" dataIndex="author" key="author" />
-        <Column title="publisher" dataIndex="publisher" key="publisher" />
-        <Column title="type" dataIndex="type" key="type" />
-        <Column title="total" dataIndex="total" key="total" />
+        title={()=>`A total of ${count} results were found based on the filter criteria`}>
+        <Column title="Bookname" dataIndex="bookname" key="bookname" />
+        <Column title="Author" dataIndex="author" key="author" />
+        <Column title="Publisher" dataIndex="publisher" key="publisher" />
+        <Column title="Type" dataIndex="type" key="type" />
+        <Column title="Total" dataIndex="total" key="total" />
         <Column
           title="Action"
           key="action"
@@ -111,10 +111,10 @@ const Book = () => {
             <Space size="middle">
               <Button type="primary" onClick={()=>navigate(`/publish?id=${data.id}`)} danger>Edit</Button>
               <Popconfirm
-              title="确认删除该条文章吗?"
+              title="Are you sure you want to delete this article?"
               onConfirm={() => Delete(data)}
-              okText="确认"
-              cancelText="取消">
+              okText="Confirm"
+              cancelText="Cancel">
               <Button type="primary" htmlType='Delete'>Delete</Button>
             </Popconfirm>
            
